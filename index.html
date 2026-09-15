@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="NormToken: speaker- and duration-normalized semantic speech tokens. Mandarin and English text-to-speech and voice cloning audio samples.">
+  <title>NormToken | Speech Samples</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="wordmark" href="#main">NormToken<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#tts">TTS</a>
+        <a href="#vc">VC</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="paper-heading container" aria-labelledby="paper-title">
+      <p class="eyebrow">Semantic Speech Tokenization</p>
+      <h1 id="paper-title"><span class="paper-name">NormToken</span>
+        <span class="paper-subtitle">Speaker- and Duration-Normalized Semantic Speech Tokens<br class="desktop-break">
+          via Iterative S2U&ndash;T2U Refinement</span>
+      </h1>
+      <p class="authors">
+        <span>Hanlin Zhang<sup>1,*&Dagger;</sup></span>
+        <span>Daxin Tan<sup>2,*</sup></span>
+        <span>Dehua Tao<sup>2,*</sup></span>
+        <span>Chengxi Deng<sup>3</sup></span>
+        <span>Xiao Chen<sup>2,&dagger;</sup></span>
+        <span>Linqi Song<sup>1,&dagger;</sup></span>
+      </p>
+      <p class="affiliations">
+        <span><sup>1</sup>City University of Hong Kong</span>
+        <span><sup>2</sup>AI Lab, Leibniz Research Center, Huawei</span>
+        <span><sup>3</sup>Chinese University of Hong Kong</span>
+      </p>
+      <p class="author-notes">* Equal contribution. &dagger; Corresponding authors.
+        &Dagger; Work done during an internship at Huawei.</p>
+      <div class="paper-links">
+        <a class="button button-primary" href="assets/paper.pdf" target="_blank" rel="noopener">
+          <img src="assets/icons/file-text.svg" width="17" height="17" alt="">Paper
+        </a>
+        <a class="button" href="https://github.com/Hanlin1004/iter-alignment-icassp" target="_blank" rel="noopener">
+          <img src="assets/icons/git-fork.svg" width="17" height="17" alt="">Repository
+        </a>
+        <a class="sample-link" href="#tts">Audio samples <img src="assets/icons/arrow-down.svg" width="16" height="16" alt=""></a>
+      </div>
+    </section>
+
+    <section class="abstract-section container" id="abstract" aria-labelledby="abstract-heading">
+      <h2 id="abstract-heading">Abstract</h2>
+      <p id="abstract-text"></p>
+    </section>
+
+    <section class="method-section container" id="method" aria-labelledby="method-heading">
+      <div class="section-heading">
+        <div><span class="section-number">01</span><h2 id="method-heading">Method</h2></div>
+        <a class="quiet-link" href="assets/method.pdf" target="_blank" rel="noopener">Figure PDF
+          <img src="assets/icons/arrow-up-right.svg" width="16" height="16" alt=""></a>
+      </div>
+      <figure>
+        <a href="assets/method.png" target="_blank" rel="noopener" aria-label="Open the full-resolution method figure">
+          <img class="method-image" src="assets/method.png" width="1800" height="936"
+            alt="NormToken method: initialize a HuBERT-based semantic tokenizer, alternate S2U and T2U training, and synthesize speech with a token-conditioned de-tokenizer.">
+        </a>
+        <figcaption>Iterative S2U&ndash;T2U refinement and token-conditioned speech synthesis.</figcaption>
+      </figure>
+    </section>
+
+    <div class="samples-band">
+      <section class="audio-section container" id="tts" aria-labelledby="tts-heading">
+        <div class="section-heading sample-section-heading">
+          <div><span class="section-number">02</span><h2 id="tts-heading">Text-to-Speech</h2></div>
+          <span class="dataset-label">Seed-TTS</span>
+        </div>
+        <div class="task-toolbar">
+          <p class="task-summary">Text + reference speech</p>
+          <div class="language-tabs" role="tablist" aria-label="TTS language">
+            <button type="button" role="tab" id="tts-tab-zh" aria-controls="tts-panel-zh" aria-selected="true" data-task="tts" data-language="zh">Mandarin <span>ZH</span></button>
+            <button type="button" role="tab" id="tts-tab-en" aria-controls="tts-panel-en" aria-selected="false" tabindex="-1" data-task="tts" data-language="en">English <span>EN</span></button>
+          </div>
+        </div>
+        <div id="tts-panel-zh" class="sample-panel" role="tabpanel" aria-labelledby="tts-tab-zh"></div>
+        <div id="tts-panel-en" class="sample-panel" role="tabpanel" aria-labelledby="tts-tab-en" hidden></div>
+      </section>
+
+      <section class="audio-section container" id="vc" aria-labelledby="vc-heading">
+        <div class="section-heading sample-section-heading">
+          <div><span class="section-number">03</span><h2 id="vc-heading">Voice Cloning</h2></div>
+          <span class="dataset-label">Seed-TTS</span>
+        </div>
+        <div class="task-toolbar">
+          <p class="task-summary">Source content + reference voice</p>
+          <div class="language-tabs" role="tablist" aria-label="VC language">
+            <button type="button" role="tab" id="vc-tab-zh" aria-controls="vc-panel-zh" aria-selected="true" data-task="vc" data-language="zh">Mandarin <span>ZH</span></button>
+            <button type="button" role="tab" id="vc-tab-en" aria-controls="vc-panel-en" aria-selected="false" tabindex="-1" data-task="vc" data-language="en">English <span>EN</span></button>
+          </div>
+        </div>
+        <div id="vc-panel-zh" class="sample-panel" role="tabpanel" aria-labelledby="vc-tab-zh"></div>
+        <div id="vc-panel-en" class="sample-panel" role="tabpanel" aria-labelledby="vc-tab-en" hidden></div>
+      </section>
+    </div>
+    <noscript><p class="container">JavaScript is required for the audio comparison players. The original WAV files are available in <code>assets/audio/</code>.</p></noscript>
+  </main>
+
+  <footer class="container site-footer">
+    <span class="wordmark">NormToken<span class="wordmark-dot" aria-hidden="true">.</span></span>
+    <span>Mandarin &amp; English &middot; Seed-TTS samples</span>
+    <a href="#main" class="quiet-link">Back to top <img src="assets/icons/arrow-up.svg" width="16" height="16" alt=""></a>
+  </footer>
+</body>
+</html>
