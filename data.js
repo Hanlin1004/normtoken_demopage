@@ -209,13 +209,13 @@ window.NORMTOKEN_DATA = {
       "zh": [
         {
           "id": "vc-zh-01",
-          "originalId": "10002287-00000094_10002290-00000102",
-          "text": "说说你们在京藏高速怀安段，堵车现场看到的情况。",
-          "referenceText": "在此奉劝大家别乱打美白针。",
+          "originalId": "00004531-00000019_10002430-00000015",
+          "text": "目前共享出行市场处于高速增长阶段。",
+          "referenceText": "现在很多快递企业，做运输路线也都基于阿里云。",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-zh-01-reference.wav",
-              "duration": 4.741,
+              "duration": 4.112,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -223,7 +223,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-zh-01-iter0.wav",
-              "duration": 5.696,
+              "duration": 5.771,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -231,7 +231,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-zh-01-iter4.wav",
-              "duration": 7.317,
+              "duration": 3.275,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -239,7 +239,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-zh-01-source.wav",
-              "duration": 5.168,
+              "duration": 7.949,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -247,24 +247,24 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-zh-01-cosy3.wav",
-              "duration": 5.18,
+              "duration": 7.98,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 32,
               "codec": 3
             }
           },
-          "metadata": "zh/non_para_reconstruct_meta.lst"
+          "metadata": "tools/vc-selection.json#vc-zh-01"
         },
         {
           "id": "vc-zh-02",
-          "originalId": "10002290-00000094_10002298-00000016",
-          "text": "共同建设面向未来的交通，和出行服务新生态。",
-          "referenceText": "对此，乔宝云认为有夸大的成分。",
+          "originalId": "00005280-00000049_00004784-00000120",
+          "text": "此外，陈威宇也负责筹措约二百万美元。",
+          "referenceText": "清明节是中国的传统节日，在这天中国人要祭祀死者。",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-zh-02-reference.wav",
-              "duration": 4.123,
+              "duration": 4.48,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -272,7 +272,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-zh-02-iter0.wav",
-              "duration": 5.056,
+              "duration": 6.357,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -280,7 +280,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-zh-02-iter4.wav",
-              "duration": 5.771,
+              "duration": 2.933,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -288,7 +288,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-zh-02-source.wav",
-              "duration": 4.603,
+              "duration": 8.779,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -296,24 +296,24 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-zh-02-cosy3.wav",
-              "duration": 4.6,
+              "duration": 8.8,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 32,
               "codec": 3
             }
           },
-          "metadata": "zh/non_para_reconstruct_meta.lst"
+          "metadata": "tools/vc-selection.json#vc-zh-02"
         },
         {
           "id": "vc-zh-03",
-          "originalId": "10002298-00000001_10002309-00000033",
-          "text": "目前中国互联网国际化还在开拓阶段。",
-          "referenceText": "顺风时提高警惕，逆风时笃定前行。",
+          "originalId": "00005281-00000094_10003102-00000076",
+          "text": "看来我是唯一不写博客的人。",
+          "referenceText": "狗是肉食动物，狗屎味道很浓，可以说是臭气熏天。",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-zh-03-reference.wav",
-              "duration": 4.197,
+              "duration": 4.224,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -321,7 +321,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-zh-03-iter0.wav",
-              "duration": 4.619,
+              "duration": 5.035,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -329,7 +329,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-zh-03-iter4.wav",
-              "duration": 4.192,
+              "duration": 2.453,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -337,7 +337,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-zh-03-source.wav",
-              "duration": 4.607,
+              "duration": 6.363,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -345,57 +345,6 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-zh-03-cosy3.wav",
-              "duration": 4.62,
-              "sampleRate": 24000,
-              "channels": 1,
-              "bits": 32,
-              "codec": 3
-            }
-          },
-          "metadata": "zh/non_para_reconstruct_meta.lst"
-        }
-      ],
-      "en": [
-        {
-          "id": "vc-en-01",
-          "originalId": "common_voice_en_10119832_common_voice_en_103675-common_voice_en_103676",
-          "text": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert.",
-          "referenceText": "We asked over twenty different people, and they all said it was his.",
-          "audio": {
-            "reference": {
-              "src": "assets/audio/vc-en-01-reference.wav",
-              "duration": 3.904,
-              "sampleRate": 24000,
-              "channels": 1,
-              "bits": 16,
-              "codec": 1
-            },
-            "iter0": {
-              "src": "assets/audio/vc-en-01-iter0.wav",
-              "duration": 6.336,
-              "sampleRate": 24000,
-              "channels": 1,
-              "bits": 16,
-              "codec": 1
-            },
-            "iter4": {
-              "src": "assets/audio/vc-en-01-iter4.wav",
-              "duration": 5.611,
-              "sampleRate": 24000,
-              "channels": 1,
-              "bits": 16,
-              "codec": 1
-            },
-            "source": {
-              "src": "assets/audio/vc-en-01-source.wav",
-              "duration": 6.364,
-              "sampleRate": 24000,
-              "channels": 1,
-              "bits": 16,
-              "codec": 1
-            },
-            "cosy3": {
-              "src": "assets/audio/vc-en-01-cosy3.wav",
               "duration": 6.38,
               "sampleRate": 24000,
               "channels": 1,
@@ -403,17 +352,68 @@ window.NORMTOKEN_DATA = {
               "codec": 3
             }
           },
-          "metadata": "en/non_para_reconstruct_meta.lst"
+          "metadata": "tools/vc-selection.json#vc-zh-03"
+        }
+      ],
+      "en": [
+        {
+          "id": "vc-en-01",
+          "originalId": "common_voice_en_17899910_common_voice_en_19789569-common_voice_en_19789567",
+          "text": "Playing house and pretending to be someone else are examples of this phenomenon.",
+          "referenceText": "Cats and Dogs each hate the other.",
+          "audio": {
+            "reference": {
+              "src": "assets/audio/vc-en-01-reference.wav",
+              "duration": 3.302,
+              "sampleRate": 24000,
+              "channels": 1,
+              "bits": 16,
+              "codec": 1
+            },
+            "iter0": {
+              "src": "assets/audio/vc-en-01-iter0.wav",
+              "duration": 4.789,
+              "sampleRate": 24000,
+              "channels": 1,
+              "bits": 16,
+              "codec": 1
+            },
+            "iter4": {
+              "src": "assets/audio/vc-en-01-iter4.wav",
+              "duration": 8.085,
+              "sampleRate": 24000,
+              "channels": 1,
+              "bits": 16,
+              "codec": 1
+            },
+            "source": {
+              "src": "assets/audio/vc-en-01-source.wav",
+              "duration": 3.865,
+              "sampleRate": 24000,
+              "channels": 1,
+              "bits": 16,
+              "codec": 1
+            },
+            "cosy3": {
+              "src": "assets/audio/vc-en-01-cosy3.wav",
+              "duration": 3.9,
+              "sampleRate": 24000,
+              "channels": 1,
+              "bits": 32,
+              "codec": 3
+            }
+          },
+          "metadata": "tools/vc-selection.json#vc-en-01"
         },
         {
           "id": "vc-en-02",
-          "originalId": "common_voice_en_103675_common_voice_en_10933823-common_voice_en_10933822",
-          "text": "When it comes to the crunch, our company will become insolvent.",
-          "referenceText": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+          "originalId": "common_voice_en_20905661_common_voice_en_2331-common_voice_en_2332",
+          "text": "It isn't the money.",
+          "referenceText": "He was interested in music and cooking and food, he was very companionable.",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-en-02-reference.wav",
-              "duration": 6.485,
+              "duration": 4.053,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -421,7 +421,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-en-02-iter0.wav",
-              "duration": 4.085,
+              "duration": 1.899,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -429,7 +429,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-en-02-iter4.wav",
-              "duration": 3.52,
+              "duration": 1.12,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -437,7 +437,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-en-02-source.wav",
-              "duration": 4.193,
+              "duration": 2.504,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -445,24 +445,24 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-en-02-cosy3.wav",
-              "duration": 4.2,
+              "duration": 2.56,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 32,
               "codec": 3
             }
           },
-          "metadata": "en/non_para_reconstruct_meta.lst"
+          "metadata": "tools/vc-selection.json#vc-en-02"
         },
         {
           "id": "vc-en-03",
-          "originalId": "common_voice_en_10933823_common_voice_en_120405-common_voice_en_120402",
-          "text": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
-          "referenceText": "Sometimes I overthink things which leads me to postpone and ultimately never achieve the goal I had in mind.",
+          "originalId": "common_voice_en_120405_common_voice_en_21184954-common_voice_en_21184959",
+          "text": "Legislation provides for transfer of interest, dividends, and capital.",
+          "referenceText": "He approached the mass and was surprised at the size and the shape.",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-en-03-reference.wav",
-              "duration": 7.677,
+              "duration": 5.958,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -470,7 +470,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-en-03-iter0.wav",
-              "duration": 8.267,
+              "duration": 4.267,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -478,7 +478,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-en-03-iter4.wav",
-              "duration": 7.36,
+              "duration": 7.104,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -486,7 +486,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-en-03-source.wav",
-              "duration": 8.684,
+              "duration": 3.926,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -494,14 +494,14 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-en-03-cosy3.wav",
-              "duration": 8.7,
+              "duration": 3.94,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 32,
               "codec": 3
             }
           },
-          "metadata": "en/non_para_reconstruct_meta.lst"
+          "metadata": "tools/vc-selection.json#vc-en-03"
         }
       ]
     }

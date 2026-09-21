@@ -1,0 +1,323 @@
+{
+  "selection": "Exactly the six filenames in the user-provided screenshot, in screenshot order.",
+  "pairs": [
+    {
+      "sample": "vc-zh-01",
+      "language": "zh",
+      "pair_id": "00004531-00000019_10002430-00000015",
+      "source_id": "10002430-00000015",
+      "reference_id": "00004531-00000019",
+      "source_text": "目前共享出行市场处于高速增长阶段。",
+      "reference_text": "现在很多快递企业，做运输路线也都基于阿里云。",
+      "source_wav": "wavs/10002430-00000015.wav",
+      "reference_wav": "prompt-wavs/00004531-00000019.wav",
+      "list_path_base": "seedtts_testset/zh",
+      "original_list": "extreme_seedtts_vc_zh.lst",
+      "original_line_number": 19,
+      "cosyvoice3_output_filename": "semantic_10002430-00000015_acoustic_00004531-00000019_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/wavs/10002430-00000015.wav",
+          "sha256": "8f8999ffb7f8a3ce53e17df39293e543b961c899219e03267179017303f14af3",
+          "duration_seconds": 7.949,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/00004531-00000019.wav",
+          "sha256": "d6414fde2514238910e78d27ff3effc19dc9094f36e7ff8be9f7973dad9f398e",
+          "duration_seconds": 4.112,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen_iter0/extreme_seedtts_vc_zh_gen_iter0/00004531-00000019_10002430-00000015.wav",
+          "sha256": "2e9ff5cecf393ce198a327d0a88a139215c29db796fb6cd3e037dd97fe9e94e1",
+          "duration_seconds": 5.770667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen/extreme_seedtts_vc_zh_gen/00004531-00000019_10002430-00000015.wav",
+          "sha256": "f0a1a2f20d395cc4e4a8184c59725697a64aa0d123a87f302c7d7836654d82f5",
+          "duration_seconds": 3.274667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    },
+    {
+      "sample": "vc-zh-02",
+      "language": "zh",
+      "pair_id": "00005280-00000049_00004784-00000120",
+      "source_id": "00004784-00000120",
+      "reference_id": "00005280-00000049",
+      "source_text": "此外，陈威宇也负责筹措约二百万美元。",
+      "reference_text": "清明节是中国的传统节日，在这天中国人要祭祀死者。",
+      "source_wav": "wavs/00004784-00000120.wav",
+      "reference_wav": "prompt-wavs/00005280-00000049.wav",
+      "list_path_base": "seedtts_testset/zh",
+      "original_list": "extreme_seedtts_vc_zh.lst",
+      "original_line_number": 18,
+      "cosyvoice3_output_filename": "semantic_00004784-00000120_acoustic_00005280-00000049_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/wavs/00004784-00000120.wav",
+          "sha256": "c859337d696158a051a956c384390f194a4d68d6f5b92c4b5c84ba4ca0e42d6b",
+          "duration_seconds": 8.778667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/00005280-00000049.wav",
+          "sha256": "917782278bf1689a967fc8b41cc6a9141b6a17f3df031262ede23eafe642b9c6",
+          "duration_seconds": 4.48,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen_iter0/extreme_seedtts_vc_zh_gen_iter0/00005280-00000049_00004784-00000120.wav",
+          "sha256": "9a80d07436d9330eebb96613ed5dcb0aa58025ff2cf07b699bf5134be5884e83",
+          "duration_seconds": 6.357333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen/extreme_seedtts_vc_zh_gen/00005280-00000049_00004784-00000120.wav",
+          "sha256": "40396a8bf67daebaeb649f20c39a6a5eadee805c28df193156d2bcf082559628",
+          "duration_seconds": 2.933333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    },
+    {
+      "sample": "vc-zh-03",
+      "language": "zh",
+      "pair_id": "00005281-00000094_10003102-00000076",
+      "source_id": "10003102-00000076",
+      "reference_id": "00005281-00000094",
+      "source_text": "看来我是唯一不写博客的人。",
+      "reference_text": "狗是肉食动物，狗屎味道很浓，可以说是臭气熏天。",
+      "source_wav": "wavs/10003102-00000076.wav",
+      "reference_wav": "prompt-wavs/00005281-00000094.wav",
+      "list_path_base": "seedtts_testset/zh",
+      "original_list": "extreme_seedtts_vc_zh.lst",
+      "original_line_number": 20,
+      "cosyvoice3_output_filename": "semantic_10003102-00000076_acoustic_00005281-00000094_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/wavs/10003102-00000076.wav",
+          "sha256": "4de7aa0a0602a247bd65692635199d7dcf4453aafa8c8bdda4e89da1b5c77216",
+          "duration_seconds": 6.362667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/00005281-00000094.wav",
+          "sha256": "2f0d3f8bcbb0e078b8a54851e1ad34d80758beaa04144db73c78d90cbc108604",
+          "duration_seconds": 4.224,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen_iter0/extreme_seedtts_vc_zh_gen_iter0/00005281-00000094_10003102-00000076.wav",
+          "sha256": "9176253d22ae136a1dec26522f631285fb815660da98bfdad4eb60b8c95512b6",
+          "duration_seconds": 5.034667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen/extreme_seedtts_vc_zh_gen/00005281-00000094_10003102-00000076.wav",
+          "sha256": "d44a22fe50f9ca9f9f51bb276c5393346e72a8b33e7790a7d46add6c8f4d3bd3",
+          "duration_seconds": 2.453333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    },
+    {
+      "sample": "vc-en-01",
+      "language": "en",
+      "pair_id": "common_voice_en_17899910_common_voice_en_19789569-common_voice_en_19789567",
+      "source_id": "common_voice_en_19789569-common_voice_en_19789567",
+      "reference_id": "common_voice_en_17899910",
+      "source_text": "Playing house and pretending to be someone else are examples of this phenomenon.",
+      "reference_text": "Cats and Dogs each hate the other.",
+      "source_wav": "wavs/common_voice_en_19789569-common_voice_en_19789567.wav",
+      "reference_wav": "prompt-wavs/common_voice_en_17899910.wav",
+      "list_path_base": "seedtts_testset/en",
+      "original_list": "extreme_seedtts_vc_en.lst",
+      "original_line_number": 6,
+      "cosyvoice3_output_filename": "semantic_common_voice_en_19789569-common_voice_en_19789567_acoustic_common_voice_en_17899910_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/wavs/common_voice_en_19789569-common_voice_en_19789567.wav",
+          "sha256": "f69edd8e9c0edadf9a975f214b5ace8217ae8d3d928ef072aa114074cff7476e",
+          "duration_seconds": 3.865458,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/prompt-wavs/common_voice_en_17899910.wav",
+          "sha256": "04eb37e4a549a6f264285f6de2e7ab19f28be47f20097b9249890f79b2c408f2",
+          "duration_seconds": 3.302042,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen_iter0/extreme_seedtts_vc_en_gen_iter0/common_voice_en_17899910_common_voice_en_19789569-common_voice_en_19789567.wav",
+          "sha256": "4d78f8287f5519ae5b906ae25f44897b4318d4c11660f032c8874d50d005ec77",
+          "duration_seconds": 4.789333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen/extreme_seedtts_vc_en_gen/common_voice_en_17899910_common_voice_en_19789569-common_voice_en_19789567.wav",
+          "sha256": "6fea201e692023f4bb2f0f33abf2b6990edf40664ea9c84805a7ddaeeeed428b",
+          "duration_seconds": 8.085333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    },
+    {
+      "sample": "vc-en-02",
+      "language": "en",
+      "pair_id": "common_voice_en_20905661_common_voice_en_2331-common_voice_en_2332",
+      "source_id": "common_voice_en_2331-common_voice_en_2332",
+      "reference_id": "common_voice_en_20905661",
+      "source_text": "It isn't the money.",
+      "reference_text": "He was interested in music and cooking and food, he was very companionable.",
+      "source_wav": "wavs/common_voice_en_2331-common_voice_en_2332.wav",
+      "reference_wav": "prompt-wavs/common_voice_en_20905661.wav",
+      "list_path_base": "seedtts_testset/en",
+      "original_list": "extreme_seedtts_vc_en.lst",
+      "original_line_number": 17,
+      "cosyvoice3_output_filename": "semantic_common_voice_en_2331-common_voice_en_2332_acoustic_common_voice_en_20905661_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/wavs/common_voice_en_2331-common_voice_en_2332.wav",
+          "sha256": "467b347a744651816808a79a5ae1125ed3ee1bc1ed746050b851c1c302da9c2a",
+          "duration_seconds": 2.503667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/prompt-wavs/common_voice_en_20905661.wav",
+          "sha256": "2de3e615a844442818755790ff3c94fb215a388ee282ec6daa1a489b52561af0",
+          "duration_seconds": 4.053333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen_iter0/extreme_seedtts_vc_en_gen_iter0/common_voice_en_20905661_common_voice_en_2331-common_voice_en_2332.wav",
+          "sha256": "d5c7229cb0bf62e11372581290178a239943f5c24babb709ab4aaf256e034701",
+          "duration_seconds": 1.898667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen/extreme_seedtts_vc_en_gen/common_voice_en_20905661_common_voice_en_2331-common_voice_en_2332.wav",
+          "sha256": "a6c080c299dc99dd70ccc5f92f2b82e16c3c6d0bab527f1bed6b279a5c8e15d9",
+          "duration_seconds": 1.12,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    },
+    {
+      "sample": "vc-en-03",
+      "language": "en",
+      "pair_id": "common_voice_en_120405_common_voice_en_21184954-common_voice_en_21184959",
+      "source_id": "common_voice_en_21184954-common_voice_en_21184959",
+      "reference_id": "common_voice_en_120405",
+      "source_text": "Legislation provides for transfer of interest, dividends, and capital.",
+      "reference_text": "He approached the mass and was surprised at the size and the shape.",
+      "source_wav": "wavs/common_voice_en_21184954-common_voice_en_21184959.wav",
+      "reference_wav": "prompt-wavs/common_voice_en_120405.wav",
+      "list_path_base": "seedtts_testset/en",
+      "original_list": "extreme_seedtts_vc_en.lst",
+      "original_line_number": 10,
+      "cosyvoice3_output_filename": "semantic_common_voice_en_21184954-common_voice_en_21184959_acoustic_common_voice_en_120405_recombination.wav",
+      "files": {
+        "source": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/wavs/common_voice_en_21184954-common_voice_en_21184959.wav",
+          "sha256": "d053b5104f248cf175939fdc5b68c9b3c0747604ac32dd1be820c93a25cbf0f0",
+          "duration_seconds": 3.926333,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "reference": {
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/en/prompt-wavs/common_voice_en_120405.wav",
+          "sha256": "1ea6c705b6d9cf2564395a8f6c89f39b10585a67e9c0fa81ffe3a202e2e51bba",
+          "duration_seconds": 5.957792,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter0": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen_iter0/extreme_seedtts_vc_en_gen_iter0/common_voice_en_120405_common_voice_en_21184954-common_voice_en_21184959.wav",
+          "sha256": "b675361ce9a1cac46d851b7aef320a0cd69c32db5c7b1d7889b9e08520cffbb7",
+          "duration_seconds": 4.266667,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        },
+        "iter4": {
+          "path_relative_to_downloads": "extreme_seedtts_vc_en_gen/extreme_seedtts_vc_en_gen/common_voice_en_120405_common_voice_en_21184954-common_voice_en_21184959.wav",
+          "sha256": "0be22f9053732a55ac582a66dfbe93549644f4a6322359f7995af7c51099833d",
+          "duration_seconds": 7.104,
+          "sample_rate": 24000,
+          "channels": 1,
+          "bits": 16,
+          "codec": 1
+        }
+      }
+    }
+  ]
+}

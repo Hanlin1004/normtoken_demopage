@@ -6,8 +6,10 @@ Keep the whole `demo/` directory together when moving or hosting it.
 
 ## Included Content
 
-- Title, authors, abstract, paper PDF, and original method figure from the
+- Title, authors, abstract, and original method figure from the
   newer paper repository, as of this build.
+- The paper download remains hidden. `assets/paper.pdf` may exist locally,
+  but is ignored by Git and is not included in the deployed site.
 - TTS: 3 Mandarin and 3 English samples. Each includes target text,
   reference WAV, NormToken Iter. 0 WAV, and NormToken Iter. 4 WAV.
 - VC: 3 Mandarin and 3 English samples. Each includes source WAV/text,
@@ -16,22 +18,27 @@ Keep the whole `demo/` directory together when moving or hosting it.
   trimming, gain normalization, or speed modification.
 
 The visible title uses title case. Abstract wording is copied from
-`Template.tex`; the paper and figure files themselves are not edited.
+`Template.tex`; the local paper and figure files themselves are not edited.
 
 ## Sample Selection and Matching
 
 `manifest.json` records the original filenames, selected IDs, relative source
 locations, WAV metadata, and SHA-256 hashes. `originRoot` is either the supplied
-Downloads directory or the supplied CosyVoice directory; absolute personal
-paths are intentionally omitted.
+Downloads directory, the original CosyVoice directory, or a supplied
+CosyVoice ZIP (`cosyArchive`). ZIP records include the archive filename,
+archive SHA-256, and exact member name. Absolute personal paths are omitted.
 
-Samples are deterministic selections, not a subjective best-of ranking:
-the first three fully matched examples with distinct references in metadata
-order. TTS additionally limits target text to 16-70 characters for Mandarin
-and 16-160 characters for English. VC is selected first; TTS excludes all
-selected VC source/reference recordings and transcripts, so the two tasks
-do not repeat content or reference audio. Sample IDs are retained only in
-the data/manifest, not displayed on the page.
+VC uses the exact three Mandarin and three English extreme pairs selected
+by the author, in the supplied screenshot order. These are curated listening
+examples, not a random evaluation subset. TTS originally used deterministic
+metadata-order selection with moderate text length. Sample IDs are retained
+only in the data/manifest, not displayed on the page.
+
+TTS is unchanged as explicitly requested by the author. English TTS sample 1
+and VC sample 3 therefore share reference `common_voice_en_120405`, while
+their target/source content differs. This specific exception is recorded in
+`manifest.json` under `allowedSharedReferences`; other overlap checks remain
+enabled.
 
 TTS metadata has four pipe-separated fields:
 
@@ -56,26 +63,17 @@ semantic_{source_stem}_acoustic_{reference_stem}_recombination.wav
 
 Only `recombination` outputs are used for the baseline, never `reconstruction`.
 
-### Extreme-pair Lists
+### Current VC Inputs
 
-The supplied `extreme_seedtts_vc_zh (1).lst` and
-`extreme_seedtts_vc_en (1).lst` each contain 20 pairs. None of those exact
-pairs occur in the supplied NormToken or CosyVoice 3 output directories.
-For example, the requested Mandarin pair is:
+`tools/vc-selection.json` pins the six requested pairs, source/reference
+texts, original metadata line numbers, and matching Iter. 0 / Iter. 4 paths.
+Iter. 0 comes from `extreme_seedtts_vc_{zh,en}_gen_iter0`; Iter. 4 comes
+from `extreme_seedtts_vc_{zh,en}_gen`. CosyVoice 3 outputs come from
+`normtoken_vc_selected_zh.zip` and `normtoken_vc_selected_en.zip`.
 
-```text
-reference: 10002394-00000014
-source:    00005260-00000027
-```
-
-The existing generated file instead pairs that source with reference
-`00005258-00000102`. These are not interchangeable.
-
-With the author's approval, this version uses fully matched pairs from
-`non_para_reconstruct_meta.lst`. **The displayed VC samples are not claimed
-to be extreme speaking-rate pairs.** Replace them once outputs for the
-requested extreme pairs are available. No phone-rate values are inferred
-from duration or text length.
+All three models use the same source/reference pair for each example.
+These extreme pairs are not the default pairings in the official VC list.
+No phone-rate values are inferred from duration or text length.
 
 ## Update the Samples
 
@@ -83,8 +81,23 @@ from duration or text length.
 all audio players from that data. Preserve the field names and task/language
 structure to add or replace examples.
 
-For reproducible matching and copying, use Python 3 and Poppler's
-`pdftoppm` (on PATH):
+To reapply the current VC selection without rebuilding TTS or paper assets,
+use Python 3:
+
+```powershell
+python tools/update_selected_vc.py `
+  --downloads "PATH_TO_DOWNLOADS" `
+  --cosy-zh "PATH_TO/normtoken_vc_selected_zh.zip" `
+  --cosy-en "PATH_TO/normtoken_vc_selected_en.zip"
+```
+
+This verifies input hashes and exact source/reference filenames, then updates
+only the 30 VC WAVs and their data/manifest entries. The original ZIPs and
+input recordings are unchanged.
+
+The older full-site builder below recreates metadata-order samples and
+**does not preserve the current curated VC selection**. Use a separate output
+directory for a fresh build. It requires Python 3 and Poppler's `pdftoppm`:
 
 ```powershell
 python tools/build_samples.py `
@@ -97,7 +110,7 @@ python tools/build_samples.py `
 Run from `demo/`, or supply `--output PATH_TO_DEMO`. `--inspect` checks and
 prints matches without writing assets. The default VC selection is
 `extreme`, which fails if the required exact pairs are missing; select
-`standard` explicitly for the current fallback. `--count` controls samples
+`standard` explicitly for the older fallback. `--count` controls samples
 per language/task. The script writes demo assets and manifests only; it does
 not alter original recordings or LaTeX. Use a fresh output directory when
 reducing the number of examples to avoid unused old WAVs.

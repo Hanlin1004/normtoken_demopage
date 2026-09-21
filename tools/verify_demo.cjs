@@ -54,23 +54,39 @@ async function main() {
     assert.equal(digest(path.join(root, record.file)), record.sha256, record.file);
     checkAudioSignal(path.join(root, record.file));
   }
-  assert.equal(digest(path.join(root, "assets/paper.pdf")), manifest.paperSha256);
+  const paperPath = path.join(root, "assets/paper.pdf");
+  const hasLocalPaper = fs.existsSync(paperPath);
+  if (hasLocalPaper) assert.equal(digest(paperPath), manifest.paperSha256);
+  else assert.equal(manifest.paperPublished, false, "Missing published paper");
   assert.equal(digest(path.join(root, "assets/method.pdf")), manifest.methodSha256);
   const textKey = text => text.trim().replace(/\s+/g, " ").toLocaleLowerCase();
+  const sharedReferences = manifest.allowedSharedReferences || [];
+  for (const allowed of sharedReferences) {
+    const tts = manifest.records.find(record => record.sample === allowed.ttsSample && record.role === "reference");
+    const vc = manifest.records.find(record => record.sample === allowed.vcSample && record.role === "reference");
+    assert(tts && vc && allowed.reason, "Invalid shared-reference exception");
+    assert.equal(tts.sha256, allowed.sha256);
+    assert.equal(vc.sha256, allowed.sha256);
+  }
   for (const language of ["zh", "en"]) {
     const vcTexts = new Set(data.samples.vc[language].flatMap(sample =>
       [textKey(sample.text), textKey(sample.referenceText)]));
     const vcInputs = manifest.records.filter(record => record.sample.startsWith(`vc-${language}-`) &&
       ["source", "reference"].includes(record.role));
     const vcStems = new Set(vcInputs.map(record => path.posix.parse(record.origin).name));
-    const vcHashes = new Set(vcInputs.map(record => record.sha256));
     for (const sample of data.samples.tts[language]) {
+      const allowedVc = new Set(sharedReferences.filter(item => item.ttsSample === sample.id).map(item => item.vcSample));
+      const restrictedTexts = new Set(data.samples.vc[language].flatMap(item =>
+        allowedVc.has(item.id) ? [textKey(item.text)] : [textKey(item.text), textKey(item.referenceText)]));
+      const restrictedInputs = vcInputs.filter(record => !(record.role === "reference" && allowedVc.has(record.sample)));
+      const restrictedStems = new Set(restrictedInputs.map(record => path.posix.parse(record.origin).name));
+      const restrictedHashes = new Set(restrictedInputs.map(record => record.sha256));
       assert(!vcTexts.has(textKey(sample.text)), `Repeated target text: ${sample.id}`);
-      assert(!vcTexts.has(textKey(sample.referenceText)), `Repeated reference text: ${sample.id}`);
+      assert(!restrictedTexts.has(textKey(sample.referenceText)), `Repeated reference text: ${sample.id}`);
       assert(!vcStems.has(sample.originalId), `Repeated content recording: ${sample.id}`);
       const reference = manifest.records.find(record => record.sample === sample.id && record.role === "reference");
-      assert(!vcStems.has(path.posix.parse(reference.origin).name), `Repeated reference: ${sample.id}`);
-      assert(!vcHashes.has(reference.sha256), `Repeated reference bytes: ${sample.id}`);
+      assert(!restrictedStems.has(path.posix.parse(reference.origin).name), `Repeated reference: ${sample.id}`);
+      assert(!restrictedHashes.has(reference.sha256), `Repeated reference bytes: ${sample.id}`);
     }
   }
   const expectedAudio = manifest.records.length;
@@ -86,6 +102,9 @@ async function main() {
   try {
     await page.goto(pathToFileURL(path.join(root, "index.html")).href);
     await page.waitForFunction(count => document.querySelectorAll("audio").length === count, expectedAudio);
+    if (manifest.paperPublished === false) {
+      assert.equal(await page.locator('a[href="assets/paper.pdf"]').count(), 0);
+    }
     assert.equal(await page.locator("article.sample").count(), sampleCount);
     assert.equal(await page.locator(".sample-details").count(), 0);
     const bodyText = await page.locator("body").textContent();
@@ -177,9 +196,12 @@ async function main() {
       }
     }
     assert.equal(errors.length, 0, errors.join("\n"));
-    const report = { samples: sampleCount, verifiedWavs: media.length, hashChecks: manifest.records.length + 2,
+    const report = { samples: sampleCount, verifiedWavs: media.length,
+      hashChecks: manifest.records.length + 1 + Number(hasLocalPaper),
+      paperPublished: manifest.paperPublished !== false,
       nonSilentAudio: "passed", allAudioPlayback: "passed", tabsAndSeeking: "passed",
-      disjointTtsVcExamples: "passed", noVisibleSampleIds: "passed", viewports, consoleErrors: errors };
+      disjointTtsVcExamples: sharedReferences.length ? "passed except explicitly allowed shared references" : "passed",
+      sharedReferences, noVisibleSampleIds: "passed", viewports, consoleErrors: errors };
     fs.writeFileSync(path.join(output, "report.json"), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report, null, 2));
   } finally {
