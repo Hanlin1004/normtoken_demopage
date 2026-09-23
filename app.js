@@ -34,7 +34,8 @@
     const container = element("div", "player");
     const audio = element("audio");
     audio.preload = "metadata";
-    audio.src = info.src;
+    const sourceUrl = info.version ? `${info.src}?v=${encodeURIComponent(info.version)}` : info.src;
+    audio.src = sourceUrl;
     audio.setAttribute("aria-label", label);
     const button = element("button", "icon-button play-button");
     button.type = "button";
@@ -54,7 +55,7 @@
     const timecode = element("span", "timecode", `0:00 / ${time(info.duration)}`);
     timecode.setAttribute("aria-hidden", "true");
     const download = element("a", "icon-button download-link");
-    download.href = info.src;
+    download.href = sourceUrl;
     download.download = info.src.split("/").pop();
     download.title = `Download ${label}`;
     download.setAttribute("aria-label", download.title);

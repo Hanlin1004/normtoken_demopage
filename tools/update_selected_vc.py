@@ -101,7 +101,7 @@ def main():
                 expected_hash = details["sha256"]
             info = wav_info(destination)
             assert sha256(destination) == expected_hash
-            sample["audio"][role] = {"src": relative, **info}
+            sample["audio"][role] = {"src": relative, "version": expected_hash[:12], **info}
             replacements[sample["id"], role] = {
                 "sample": sample["id"], "role": role, "file": relative,
                 **origin, "sha256": expected_hash, **info,

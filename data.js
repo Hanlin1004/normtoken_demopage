@@ -313,6 +313,7 @@ window.NORMTOKEN_DATA = {
           "audio": {
             "reference": {
               "src": "assets/audio/vc-zh-03-reference.wav",
+              "version": "e4fc685c56bf",
               "duration": 6.496,
               "sampleRate": 24000,
               "channels": 1,
@@ -321,6 +322,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-zh-03-iter0.wav",
+              "version": "6370c9d5ce04",
               "duration": 5.781,
               "sampleRate": 24000,
               "channels": 1,
@@ -329,6 +331,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-zh-03-iter4.wav",
+              "version": "8e023357299b",
               "duration": 11.435,
               "sampleRate": 24000,
               "channels": 1,
@@ -337,6 +340,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-zh-03-source.wav",
+              "version": "60f097bbae92",
               "duration": 4.656,
               "sampleRate": 24000,
               "channels": 1,
@@ -345,6 +349,7 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-zh-03-cosy3.wav",
+              "version": "458eb034e4ed",
               "duration": 4.72,
               "sampleRate": 24000,
               "channels": 1,

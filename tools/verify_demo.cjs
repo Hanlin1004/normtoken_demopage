@@ -137,10 +137,20 @@ async function main() {
       })));
     });
     for (const result of media) {
-      const record = manifest.records.find(item => item.file === result.src);
+      const [sourcePath, query] = result.src.split("?");
+      const record = manifest.records.find(item => item.file === sourcePath);
+      assert(record, `Unknown audio: ${result.src}`);
+      const version = new URLSearchParams(query).get("v");
+      if (version) assert.equal(version, record.sha256.slice(0, 12), `Stale audio version: ${result.src}`);
       assert(!result.error, JSON.stringify(result));
       assert(result.readyState >= 1 && Number.isFinite(result.duration), JSON.stringify(result));
       assert(Math.abs(result.duration - record.duration) < 0.03, result.src);
+    }
+    for (const info of Object.values(data.samples.vc.zh.at(-1).audio)) {
+      assert(info.version, "Updated VC audio must have a cache version");
+      const sourceUrl = `${info.src}?v=${info.version}`;
+      assert.equal(await page.locator(`audio[src="${sourceUrl}"]`).count(), 1);
+      assert.equal(await page.locator(`a.download-link[href="${sourceUrl}"]`).count(), 1);
     }
     const images = await page.locator("img").evaluateAll(imgs => imgs.map(img => ({ src: img.src, width: img.naturalWidth })));
     assert(images.every(image => image.width > 0), JSON.stringify(images.filter(image => !image.width)));
