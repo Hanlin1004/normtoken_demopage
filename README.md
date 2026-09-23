@@ -6,8 +6,8 @@ Keep the whole `demo/` directory together when moving or hosting it.
 
 ## Included Content
 
-- Title, authors, abstract, and original method figure from the
-  newer paper repository, as of this build.
+- Title, authors, and abstract from the newer paper repository. The method
+  figure uses its current `fig_method.pdf`, refreshed on 2026-09-23.
 - The paper download remains hidden. `assets/paper.pdf` may exist locally,
   but is ignored by Git and is not included in the deployed site.
 - TTS: 3 Mandarin and 3 English samples. Each includes target text,
@@ -25,11 +25,13 @@ The visible title uses title case. Abstract wording is copied from
 `manifest.json` records the original filenames, selected IDs, relative source
 locations, WAV metadata, and SHA-256 hashes. `originRoot` is either the supplied
 Downloads directory, the original CosyVoice directory, or a supplied
-CosyVoice ZIP (`cosyArchive`). ZIP records include the archive filename,
+CosyVoice ZIP (`cosyArchive`), or a standalone supplied WAV (`cosyFile`).
+ZIP records include the archive filename,
 archive SHA-256, and exact member name. Absolute personal paths are omitted.
 
 VC uses the exact three Mandarin and three English extreme pairs selected
-by the author, in the supplied screenshot order. These are curated listening
+by the author. The screenshot order is retained, with Mandarin sample 3
+replaced by the author's new pair on 2026-09-23. These are curated listening
 examples, not a random evaluation subset. TTS originally used deterministic
 metadata-order selection with moderate text length. Sample IDs are retained
 only in the data/manifest, not displayed on the page.
@@ -39,6 +41,11 @@ and VC sample 3 therefore share reference `common_voice_en_120405`, while
 their target/source content differs. This specific exception is recorded in
 `manifest.json` under `allowedSharedReferences`; other overlap checks remain
 enabled.
+
+Mandarin VC sample 3 also shares the reference sentence with Mandarin TTS
+samples 1 and 2, but uses a different reference recording. These text-only
+overlaps are recorded under `allowedSharedReferenceTexts`; all TTS audio
+and text remain unchanged.
 
 TTS metadata has four pipe-separated fields:
 
@@ -71,6 +78,12 @@ Iter. 0 comes from `extreme_seedtts_vc_{zh,en}_gen_iter0`; Iter. 4 comes
 from `extreme_seedtts_vc_{zh,en}_gen`. CosyVoice 3 outputs come from
 `normtoken_vc_selected_zh.zip` and `normtoken_vc_selected_en.zip`.
 
+Mandarin sample 3 instead uses pair
+`10002823-00000029_00004926-00000078`, the latest standalone
+`vc-zh-03-iter0.wav` / `vc-zh-03-iter4.wav` in Downloads, and
+`semantic_00004926-00000078_acoustic_10002823-00000029_recombination.wav`.
+Its reference is `10002823-00000029`; its source is `00004926-00000078`.
+
 All three models use the same source/reference pair for each example.
 These extreme pairs are not the default pairings in the official VC list.
 No phone-rate values are inferred from duration or text length.
@@ -88,7 +101,8 @@ use Python 3:
 python tools/update_selected_vc.py `
   --downloads "PATH_TO_DOWNLOADS" `
   --cosy-zh "PATH_TO/normtoken_vc_selected_zh.zip" `
-  --cosy-en "PATH_TO/normtoken_vc_selected_en.zip"
+  --cosy-en "PATH_TO/normtoken_vc_selected_en.zip" `
+  --cosy-zh-03 "PATH_TO/semantic_00004926-00000078_acoustic_10002823-00000029_recombination.wav"
 ```
 
 This verifies input hashes and exact source/reference filenames, then updates

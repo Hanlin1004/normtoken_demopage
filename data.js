@@ -307,13 +307,13 @@ window.NORMTOKEN_DATA = {
         },
         {
           "id": "vc-zh-03",
-          "originalId": "00005281-00000094_10003102-00000076",
-          "text": "看来我是唯一不写博客的人。",
-          "referenceText": "狗是肉食动物，狗屎味道很浓，可以说是臭气熏天。",
+          "originalId": "10002823-00000029_00004926-00000078",
+          "text": "你在我们屋子里走路的时候，发现路程遥远，这是不足为怪的。",
+          "referenceText": "前方有左急转弯，请减速慢行。",
           "audio": {
             "reference": {
               "src": "assets/audio/vc-zh-03-reference.wav",
-              "duration": 4.224,
+              "duration": 6.496,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -321,7 +321,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter0": {
               "src": "assets/audio/vc-zh-03-iter0.wav",
-              "duration": 5.035,
+              "duration": 5.781,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -329,7 +329,7 @@ window.NORMTOKEN_DATA = {
             },
             "iter4": {
               "src": "assets/audio/vc-zh-03-iter4.wav",
-              "duration": 2.453,
+              "duration": 11.435,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -337,7 +337,7 @@ window.NORMTOKEN_DATA = {
             },
             "source": {
               "src": "assets/audio/vc-zh-03-source.wav",
-              "duration": 6.363,
+              "duration": 4.656,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 16,
@@ -345,7 +345,7 @@ window.NORMTOKEN_DATA = {
             },
             "cosy3": {
               "src": "assets/audio/vc-zh-03-cosy3.wav",
-              "duration": 6.38,
+              "duration": 4.72,
               "sampleRate": 24000,
               "channels": 1,
               "bits": 32,

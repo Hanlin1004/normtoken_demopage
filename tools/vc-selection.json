@@ -1,5 +1,5 @@
 {
-  "selection": "Exactly the six filenames in the user-provided screenshot, in screenshot order.",
+  "selection": "Author-specified screenshot order, with Mandarin sample 3 replaced on 2026-09-23 by pair 10002823-00000029_00004926-00000078 and the latest standalone WAVs.",
   "pairs": [
     {
       "sample": "vc-zh-01",
@@ -110,55 +110,56 @@
     {
       "sample": "vc-zh-03",
       "language": "zh",
-      "pair_id": "00005281-00000094_10003102-00000076",
-      "source_id": "10003102-00000076",
-      "reference_id": "00005281-00000094",
-      "source_text": "看来我是唯一不写博客的人。",
-      "reference_text": "狗是肉食动物，狗屎味道很浓，可以说是臭气熏天。",
-      "source_wav": "wavs/10003102-00000076.wav",
-      "reference_wav": "prompt-wavs/00005281-00000094.wav",
+      "pair_id": "10002823-00000029_00004926-00000078",
+      "source_id": "00004926-00000078",
+      "reference_id": "10002823-00000029",
+      "source_text": "你在我们屋子里走路的时候，发现路程遥远，这是不足为怪的。",
+      "reference_text": "前方有左急转弯，请减速慢行。",
+      "source_wav": "wavs/00004926-00000078.wav",
+      "reference_wav": "prompt-wavs/10002823-00000029.wav",
       "list_path_base": "seedtts_testset/zh",
       "original_list": "extreme_seedtts_vc_zh.lst",
-      "original_line_number": 20,
-      "cosyvoice3_output_filename": "semantic_10003102-00000076_acoustic_00005281-00000094_recombination.wav",
+      "original_line_number": 6,
+      "cosyvoice3_output_filename": "semantic_00004926-00000078_acoustic_10002823-00000029_recombination.wav",
       "files": {
         "source": {
-          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/wavs/10003102-00000076.wav",
-          "sha256": "4de7aa0a0602a247bd65692635199d7dcf4453aafa8c8bdda4e89da1b5c77216",
-          "duration_seconds": 6.362667,
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/wavs/00004926-00000078.wav",
+          "sha256": "60f097bbae92314457328847a0e2005d6a5e32dfb640fa3d5944d5bfda8b91a1",
+          "duration_seconds": 4.656,
           "sample_rate": 24000,
           "channels": 1,
           "bits": 16,
           "codec": 1
         },
         "reference": {
-          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/00005281-00000094.wav",
-          "sha256": "2f0d3f8bcbb0e078b8a54851e1ad34d80758beaa04144db73c78d90cbc108604",
-          "duration_seconds": 4.224,
+          "path_relative_to_downloads": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/10002823-00000029.wav",
+          "sha256": "e4fc685c56bf9b137ea44819154554de1eaf794ce82b12337257270316d5699f",
+          "duration_seconds": 6.496,
           "sample_rate": 24000,
           "channels": 1,
           "bits": 16,
           "codec": 1
         },
         "iter0": {
-          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen_iter0/extreme_seedtts_vc_zh_gen_iter0/00005281-00000094_10003102-00000076.wav",
-          "sha256": "9176253d22ae136a1dec26522f631285fb815660da98bfdad4eb60b8c95512b6",
-          "duration_seconds": 5.034667,
+          "path_relative_to_downloads": "vc-zh-03-iter0.wav",
+          "sha256": "6370c9d5ce0444e960c0300dbfa3c793bc8bdcf8dee45060f929e2c55cf15bf9",
+          "duration_seconds": 5.781,
           "sample_rate": 24000,
           "channels": 1,
           "bits": 16,
           "codec": 1
         },
         "iter4": {
-          "path_relative_to_downloads": "extreme_seedtts_vc_zh_gen/extreme_seedtts_vc_zh_gen/00005281-00000094_10003102-00000076.wav",
-          "sha256": "d44a22fe50f9ca9f9f51bb276c5393346e72a8b33e7790a7d46add6c8f4d3bd3",
-          "duration_seconds": 2.453333,
+          "path_relative_to_downloads": "vc-zh-03-iter4.wav",
+          "sha256": "8e023357299bccfafab1dcb9d9deb6d7c4e8217ffb3ed8bdf280f5fc77754f7f",
+          "duration_seconds": 11.435,
           "sample_rate": 24000,
           "channels": 1,
           "bits": 16,
           "codec": 1
         }
-      }
+      },
+      "cosyvoice3_sha256": "458eb034e4ed8a8620eacac543e55fdb918d5541ac810ee7071cf41af3699e94"
     },
     {
       "sample": "vc-en-01",
@@ -318,6 +319,20 @@
           "codec": 1
         }
       }
+    }
+  ],
+  "allowedSharedReferenceTexts": [
+    {
+      "ttsSample": "tts-zh-01",
+      "vcSample": "vc-zh-03",
+      "text": "前方有左急转弯，请减速慢行。",
+      "reason": "Author-selected Mandarin replacement; keep existing TTS unchanged. Same reference sentence, different reference recordings."
+    },
+    {
+      "ttsSample": "tts-zh-02",
+      "vcSample": "vc-zh-03",
+      "text": "前方有左急转弯，请减速慢行。",
+      "reason": "Author-selected Mandarin replacement; keep existing TTS unchanged. Same reference sentence, different reference recordings."
     }
   ]
 }

@@ -59,8 +59,20 @@ async function main() {
   if (hasLocalPaper) assert.equal(digest(paperPath), manifest.paperSha256);
   else assert.equal(manifest.paperPublished, false, "Missing published paper");
   assert.equal(digest(path.join(root, "assets/method.pdf")), manifest.methodSha256);
+  if (manifest.methodPngSha256) {
+    assert.equal(digest(path.join(root, "assets/method.png")), manifest.methodPngSha256);
+  }
   const textKey = text => text.trim().replace(/\s+/g, " ").toLocaleLowerCase();
   const sharedReferences = manifest.allowedSharedReferences || [];
+  const sharedReferenceTexts = manifest.allowedSharedReferenceTexts || [];
+  for (const allowed of sharedReferenceTexts) {
+    const samples = Object.values(data.samples).flatMap(task => Object.values(task)).flat();
+    const tts = samples.find(sample => sample.id === allowed.ttsSample);
+    const vc = samples.find(sample => sample.id === allowed.vcSample);
+    assert(tts && vc && allowed.reason, "Invalid shared-reference-text exception");
+    assert.equal(textKey(tts.referenceText), textKey(allowed.text));
+    assert.equal(textKey(vc.referenceText), textKey(allowed.text));
+  }
   for (const allowed of sharedReferences) {
     const tts = manifest.records.find(record => record.sample === allowed.ttsSample && record.role === "reference");
     const vc = manifest.records.find(record => record.sample === allowed.vcSample && record.role === "reference");
@@ -76,8 +88,10 @@ async function main() {
     const vcStems = new Set(vcInputs.map(record => path.posix.parse(record.origin).name));
     for (const sample of data.samples.tts[language]) {
       const allowedVc = new Set(sharedReferences.filter(item => item.ttsSample === sample.id).map(item => item.vcSample));
+      const allowedTextVc = new Set([...allowedVc, ...sharedReferenceTexts
+        .filter(item => item.ttsSample === sample.id).map(item => item.vcSample)]);
       const restrictedTexts = new Set(data.samples.vc[language].flatMap(item =>
-        allowedVc.has(item.id) ? [textKey(item.text)] : [textKey(item.text), textKey(item.referenceText)]));
+        allowedTextVc.has(item.id) ? [textKey(item.text)] : [textKey(item.text), textKey(item.referenceText)]));
       const restrictedInputs = vcInputs.filter(record => !(record.role === "reference" && allowedVc.has(record.sample)));
       const restrictedStems = new Set(restrictedInputs.map(record => path.posix.parse(record.origin).name));
       const restrictedHashes = new Set(restrictedInputs.map(record => record.sha256));
@@ -130,6 +144,11 @@ async function main() {
     }
     const images = await page.locator("img").evaluateAll(imgs => imgs.map(img => ({ src: img.src, width: img.naturalWidth })));
     assert(images.every(image => image.width > 0), JSON.stringify(images.filter(image => !image.width)));
+    await page.locator("#method").evaluate(section => scrollTo({ top: section.offsetTop - 80, behavior: "instant" }));
+    await page.screenshot({ path: path.join(output, "desktop-method.png") });
+    await page.locator("#vc-panel-zh article.sample").last().scrollIntoViewIfNeeded();
+    await page.screenshot({ path: path.join(output, "desktop-vc-zh-last.png") });
+    await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
     await page.screenshot({ path: path.join(output, "desktop-overview.png"), fullPage: false });
     await page.locator("#tts").evaluate(section => scrollTo({ top: section.offsetTop - 80, behavior: "instant" }));
     await page.screenshot({ path: path.join(output, "desktop-tts.png") });
@@ -197,11 +216,12 @@ async function main() {
     }
     assert.equal(errors.length, 0, errors.join("\n"));
     const report = { samples: sampleCount, verifiedWavs: media.length,
-      hashChecks: manifest.records.length + 1 + Number(hasLocalPaper),
+      hashChecks: manifest.records.length + 1 + Number(hasLocalPaper) + Number(Boolean(manifest.methodPngSha256)),
       paperPublished: manifest.paperPublished !== false,
       nonSilentAudio: "passed", allAudioPlayback: "passed", tabsAndSeeking: "passed",
-      disjointTtsVcExamples: sharedReferences.length ? "passed except explicitly allowed shared references" : "passed",
-      sharedReferences, noVisibleSampleIds: "passed", viewports, consoleErrors: errors };
+      disjointTtsVcExamples: sharedReferences.length || sharedReferenceTexts.length
+        ? "passed except recorded reference overlaps" : "passed",
+      sharedReferences, sharedReferenceTexts, noVisibleSampleIds: "passed", viewports, consoleErrors: errors };
     fs.writeFileSync(path.join(output, "report.json"), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report, null, 2));
   } finally {

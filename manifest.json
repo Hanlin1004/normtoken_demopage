@@ -8,7 +8,7 @@
       "ids": [
         "00004531-00000019_10002430-00000015",
         "00005280-00000049_00004784-00000120",
-        "00005281-00000094_10003102-00000076"
+        "10002823-00000029_00004926-00000078"
       ]
     },
     {
@@ -185,9 +185,9 @@
       "role": "reference",
       "file": "assets/audio/vc-zh-03-reference.wav",
       "originRoot": "downloads",
-      "origin": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/00005281-00000094.wav",
-      "sha256": "2f0d3f8bcbb0e078b8a54851e1ad34d80758beaa04144db73c78d90cbc108604",
-      "duration": 4.224,
+      "origin": "seedtts_testset (2)/seedtts_testset/zh/prompt-wavs/10002823-00000029.wav",
+      "sha256": "e4fc685c56bf9b137ea44819154554de1eaf794ce82b12337257270316d5699f",
+      "duration": 6.496,
       "sampleRate": 24000,
       "channels": 1,
       "bits": 16,
@@ -198,9 +198,9 @@
       "role": "iter0",
       "file": "assets/audio/vc-zh-03-iter0.wav",
       "originRoot": "downloads",
-      "origin": "extreme_seedtts_vc_zh_gen_iter0/extreme_seedtts_vc_zh_gen_iter0/00005281-00000094_10003102-00000076.wav",
-      "sha256": "9176253d22ae136a1dec26522f631285fb815660da98bfdad4eb60b8c95512b6",
-      "duration": 5.035,
+      "origin": "vc-zh-03-iter0.wav",
+      "sha256": "6370c9d5ce0444e960c0300dbfa3c793bc8bdcf8dee45060f929e2c55cf15bf9",
+      "duration": 5.781,
       "sampleRate": 24000,
       "channels": 1,
       "bits": 16,
@@ -211,9 +211,9 @@
       "role": "iter4",
       "file": "assets/audio/vc-zh-03-iter4.wav",
       "originRoot": "downloads",
-      "origin": "extreme_seedtts_vc_zh_gen/extreme_seedtts_vc_zh_gen/00005281-00000094_10003102-00000076.wav",
-      "sha256": "d44a22fe50f9ca9f9f51bb276c5393346e72a8b33e7790a7d46add6c8f4d3bd3",
-      "duration": 2.453,
+      "origin": "vc-zh-03-iter4.wav",
+      "sha256": "8e023357299bccfafab1dcb9d9deb6d7c4e8217ffb3ed8bdf280f5fc77754f7f",
+      "duration": 11.435,
       "sampleRate": 24000,
       "channels": 1,
       "bits": 16,
@@ -224,9 +224,9 @@
       "role": "source",
       "file": "assets/audio/vc-zh-03-source.wav",
       "originRoot": "downloads",
-      "origin": "seedtts_testset (2)/seedtts_testset/zh/wavs/10003102-00000076.wav",
-      "sha256": "4de7aa0a0602a247bd65692635199d7dcf4453aafa8c8bdda4e89da1b5c77216",
-      "duration": 6.363,
+      "origin": "seedtts_testset (2)/seedtts_testset/zh/wavs/00004926-00000078.wav",
+      "sha256": "60f097bbae92314457328847a0e2005d6a5e32dfb640fa3d5944d5bfda8b91a1",
+      "duration": 4.656,
       "sampleRate": 24000,
       "channels": 1,
       "bits": 16,
@@ -236,12 +236,10 @@
       "sample": "vc-zh-03",
       "role": "cosy3",
       "file": "assets/audio/vc-zh-03-cosy3.wav",
-      "originRoot": "cosyArchive",
-      "origin": "semantic_10003102-00000076_acoustic_00005281-00000094_recombination.wav",
-      "originArchive": "normtoken_vc_selected_zh.zip",
-      "archiveSha256": "8448b75504a3960a5a428a6234825a2e7ccea27261c8c91a1ac1180dc40757bf",
-      "sha256": "d6baff478e14d4b3db41aee06e19c8994e21d1ce23446e0938e0666c2589a970",
-      "duration": 6.38,
+      "originRoot": "cosyFile",
+      "origin": "semantic_00004926-00000078_acoustic_10002823-00000029_recombination.wav",
+      "sha256": "458eb034e4ed8a8620eacac543e55fdb918d5541ac810ee7071cf41af3699e94",
+      "duration": 4.72,
       "sampleRate": 24000,
       "channels": 1,
       "bits": 32,
@@ -683,16 +681,32 @@
       "codec": 1
     }
   ],
-  "policy": "3 per task/language. VC: six author-selected extreme pairs in screenshot order; exact source/reference match across Iter. 0, Iter. 4 and supplied CosyVoice 3 ZIPs. TTS unchanged by author request; tts-en-01 and vc-en-03 intentionally share a reference recording. Original WAV bytes preserved.",
+  "policy": "3 per task/language. VC: six author-selected extreme pairs; Mandarin sample 3 updated on 2026-09-23. Exact source/reference match across all models. TTS unchanged by author request; tts-en-01 and vc-en-03 intentionally share a reference recording; tts-zh-01/02 and vc-zh-03 share only reference text. Original WAV bytes preserved.",
   "paperPublished": false,
   "paperSha256": "d3d0b19a9916b007baa62cdbe8ea638a7725cf825a0836c8cb09702194929118",
-  "methodSha256": "1344aed299245fb5ed806cad7da6b1b0aabc14fe2935a51c08c0a0a95f8d2f3a",
+  "methodSha256": "f46946ecfffebe35f3c1bde4735127b8bc5f164f0bce8654a4fe60cd3258fd32",
   "allowedSharedReferences": [
     {
       "ttsSample": "tts-en-01",
       "vcSample": "vc-en-03",
       "sha256": "1ea6c705b6d9cf2564395a8f6c89f39b10585a67e9c0fa81ffe3a202e2e51bba",
       "reason": "Author explicitly requested leaving TTS unchanged on 2026-09-21."
+    }
+  ],
+  "methodPngSha256": "d33735ecdf820a4fa1e78e1b7da335a14bc17afbb3c965c2e87b384c86e676ad",
+  "methodSource": "fig_method.pdf (latest paper repository, 2026-09-23 update)",
+  "allowedSharedReferenceTexts": [
+    {
+      "ttsSample": "tts-zh-01",
+      "vcSample": "vc-zh-03",
+      "text": "前方有左急转弯，请减速慢行。",
+      "reason": "Author-selected Mandarin replacement; keep existing TTS unchanged. Same reference sentence, different reference recordings."
+    },
+    {
+      "ttsSample": "tts-zh-02",
+      "vcSample": "vc-zh-03",
+      "text": "前方有左急转弯，请减速慢行。",
+      "reason": "Author-selected Mandarin replacement; keep existing TTS unchanged. Same reference sentence, different reference recordings."
     }
   ]
 }

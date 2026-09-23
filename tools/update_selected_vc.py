@@ -25,11 +25,14 @@ def main():
     parser.add_argument("--pairs", type=Path, default=Path(__file__).with_name("vc-selection.json"))
     parser.add_argument("--cosy-zh", type=Path, required=True)
     parser.add_argument("--cosy-en", type=Path, required=True)
+    parser.add_argument("--cosy-zh-03", type=Path,
+                        help="Standalone CosyVoice WAV for the latest Mandarin sample 3.")
     args = parser.parse_args()
     data = load_data(args.demo / "data.js")
     before_tts = json.dumps(data["samples"]["tts"], ensure_ascii=False, sort_keys=True)
     manifest = json.loads((args.demo / "manifest.json").read_text(encoding="utf-8"))
-    pairs = json.loads(args.pairs.read_text(encoding="utf-8"))["pairs"]
+    selection_data = json.loads(args.pairs.read_text(encoding="utf-8"))
+    pairs = selection_data["pairs"]
     plans, selections = [], {}
 
     for language in ("zh", "en"):
@@ -62,13 +65,23 @@ def main():
                 expected = (f"semantic_{pair['source_id']}_acoustic_"
                             f"{pair['reference_id']}_recombination.wav")
                 assert expected == pair["cosyvoice3_output_filename"]
+                if pair["sample"] == "vc-zh-03" and args.cosy_zh_03:
+                    if args.cosy_zh_03.name != expected:
+                        raise ValueError(f"Standalone CosyVoice filename must be {expected}")
+                    payload = args.cosy_zh_03.read_bytes()
+                    if hashlib.sha256(payload).hexdigest() != pair["cosyvoice3_sha256"]:
+                        raise ValueError("Standalone CosyVoice WAV differs from the pinned selection")
+                    plans.append((pair, payload, {"originRoot": "cosyFile", "origin": expected}))
+                    continue
                 entry = wavs[expected]
-                plans.append((pair, archive.read(entry), entry.filename,
-                              archive_path.name, archive_hash))
+                plans.append((pair, archive.read(entry), {
+                    "originRoot": "cosyArchive", "origin": entry.filename,
+                    "originArchive": archive_path.name, "archiveSha256": archive_hash,
+                }))
         selections[language] = [p["pair_id"] for p in chosen]
 
     replacements, samples = {}, {"zh": [], "en": []}
-    for pair, cosy_bytes, member, archive_name, archive_hash in plans:
+    for pair, cosy_bytes, cosy_origin in plans:
         sample = {
             "id": pair["sample"], "originalId": pair["pair_id"],
             "text": pair["source_text"], "referenceText": pair["reference_text"],
@@ -79,8 +92,7 @@ def main():
             destination = args.demo / relative
             if role == "cosy3":
                 destination.write_bytes(cosy_bytes)
-                origin = {"originRoot": "cosyArchive", "origin": member,
-                          "originArchive": archive_name, "archiveSha256": archive_hash}
+                origin = cosy_origin
                 expected_hash = hashlib.sha256(cosy_bytes).hexdigest()
             else:
                 details = pair["files"][role]
@@ -104,10 +116,11 @@ def main():
             selection.update({"selection": "extreme-explicit", "skippedMissing": 0,
                               "ids": selections[selection["language"]]})
     manifest["policy"] = (
-        "3 per task/language. VC: six author-selected extreme pairs in screenshot order; "
-        "exact source/reference match across Iter. 0, Iter. 4 and supplied CosyVoice 3 ZIPs. "
+        "3 per task/language. VC: six author-selected extreme pairs; Mandarin sample 3 "
+        "updated on 2026-09-23. Exact source/reference match across all models. "
         "TTS unchanged by author request; tts-en-01 and vc-en-03 intentionally share "
-        "a reference recording. Original WAV bytes preserved."
+        "a reference recording; tts-zh-01/02 and vc-zh-03 share only reference text. "
+        "Original WAV bytes preserved."
     )
     tts_reference = next(r for r in manifest["records"]
                          if r["sample"] == "tts-en-01" and r["role"] == "reference")
@@ -118,6 +131,7 @@ def main():
         "sha256": vc_reference["sha256"],
         "reason": "Author explicitly requested leaving TTS unchanged on 2026-09-21.",
     }]
+    manifest["allowedSharedReferenceTexts"] = selection_data.get("allowedSharedReferenceTexts", [])
     data["samples"]["vc"] = samples
     assert json.dumps(data["samples"]["tts"], ensure_ascii=False, sort_keys=True) == before_tts
     (args.demo / "data.js").write_text("window.NORMTOKEN_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n", encoding="utf-8")
